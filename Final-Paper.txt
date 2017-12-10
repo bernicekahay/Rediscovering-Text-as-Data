@@ -1,0 +1,80 @@
+My corpus location: 
+
+FILM SCRIPT: http://www.imsdb.com/scripts/Lord-of-the-Rings-Fellowship-of-the-Ring,-The.html
+
+NOVEL TEXT: http://ae-lib.org.ua/texts-c/tolkien__the_lord_of_the_rings_1__en.htm
+
+Speaker Frequency Code:
+
+#Finds counts of the file based on 'said CHARACTER NAME'. Used for finding speaking frequency in the novel.
+#ex: finder(data_file, "Gandalf")
+
+data_file = open("LoTR-Book.txt")
+
+def finder(data, character):
+	count = 0
+	phrase = 'said ' + character
+	for line in data_file:
+		if phrase in line:
+			count = count + 1
+	return count
+
+#Finds counts of the file based on 'said CHARACTER NAME'. Used for finding speaking frequency in the film.
+#ex: finder(data_file, "BOROMIR")
+
+data_file = open("LoTR-Movie.txt")
+
+def finder(data, character):
+	count = 0
+	phrase = '               ' + character
+	for line in data_file:
+		if phrase in line:
+			count = count + 1
+	return count
+
+I used http://text-processing.com/demo/sentiment/ to perform my sentiment analysis.
+
+Sentiment Analysis Passages:
+
+431
+[Novel] Deserves it! I daresay he does. Many that live deserve death. And some that die deserve life. Can you give it to them? (positive)
+[Movie] Pity? It was pity that stayed Bilbo's hand. Many that live deserve death, and some that die deserve life. Can you give it to them, Frodo? (negative)
+
+459
+[Novel] ‘My dear Frodo!’ exclaimed Gandalf. ‘Hobbits really are amazing creatures, as I have said before. You can learn all that there is to know about their ways in a month, and yet after a hundred years they can still surprise you at a pinch. (positive)
+[Movie] My dear Frodo, Hobbits really are amazing creatures. You can learn all that there is to know about their ways in a month, and yet, after a hundred years, they can still surprise you. (neutral)
+
+2403
+[Novel] For in that time he was not yet evil to behold, and they received his aid and grew mighty in craft, whereas he learned all their secrets, and betrayed them, and forged secretly in the Mountain of Fire the One Ring to be their master. (neutral)
+[Movie] In the land of Mordor, in the fires of Mount Doom, the Dark Lord Sauron forged in secret a Master Ring to control all others. (neutral)
+
+2550
+[Novel] I said we, for we it may be, if you will join with me. A new Power is rising. Against it the old allies and policies will not avail us at all. There is no hope left in Elves or dying Númenor. This then is one choice before you. before us. We may join with that Power. It would be wise, Gandalf. (negative)
+[Movie] Against the power of Mordor, there can be no victory. We must join with him, Gandalf. We must join with Sauron. It would be wise, my friend. (neutral)
+
+2706
+[Novel] 'This is Sting,' he said, and thrust it with little effort deep into a wooden beam. `Take it, if you like. I shan't want it again, I expect.' (positive)
+[Movie] My old sword "Sting"...here, take it! Bilbo offers Sting to Frodo. (positive)
+
+3017
+[Novel] 'Of course, of course! Absurdly simple, like most riddles when you see the answer.' Picking up his staff he stood before the rock and said in a clear voice: Mellon! (neutral)
+[Movie] Oh...mellon. (neutral)
+
+3146
+[Novel] 'These are Daeron's Runes, such as were used of old in Moria,' said Gandalf. 'Here is written in the tongues of Men and Dwarves: Balin son of fundin lord of moria.' (neutral)
+[Movie] "Here lies Balin, son of Fudin, Lord of Moria." He is dead, then. It's as I had feared. (neutral)
+
+3616
+[Novel] In place of the Dark Lord you will set up a Queen. And I shall not be dark, but beautiful and terrible as the Morning and the Night! Fair as the Sea and the Sun and the Snow upon the Mountain! Dreadful as the Storm and the Lightning! Stronger than the foundations of the earth. All shall love me and despair! (neutral)
+[Movie] In place of the Dark Lord, you would have a Queen, not dark, but beautiful and terrible as the Dawn. Treacherous as the Sea! Stronger than the foundations of the earth...all shall love me and despair. (positive)
+
+3907
+[Novel] It is not yours save by unhappy chance. It might have been mine. It should be mine. Give it to me! (negative)
+[Movie] You fool! It is not yours save by unhappy chance...it might have been mine. It should be mine. Give it to me! Give me the ring. (negative)
+
+3976
+[Novel] `So all my plan is spoilt! ' said Frodo. `It is no good trying to escape you. But I'm glad, Sam. I cannot tell you how glad. Come along! It is plain that we were meant to go together. We will go, and may the others find a safe road! Strider will look after them. I don't suppose we shall see them again.' `Yet we may, Mr Frodo. We may,' said Sam. (negative)
+[Movie] 'I hope the others find a safer road.' said Frodo. 'Strider'll look after them.' said Sam. 'I don't suppose we'll ever see them again.' said Frodo. 'We may yet, Mr. Frodo. We may.' said Sam. 'Sam?' said Frodo. Frodo looks at Sam with great affection..despite the grim outlook, Sam is undeterred... 'I'm glad you're with me.' said Frodo. (positive)
+
+
+I used https://www.online-utility.org/text/analyzer.jsp to find the most common phrases.
